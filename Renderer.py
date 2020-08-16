@@ -98,9 +98,9 @@ class Interface:
         instructionsmid2 = tkinter.Text(midframe2, height=2, width=35)
         instructionsmid2.insert(tkinter.END, "after path has been found press\nany key to restart program")
 
-        popslider = tkinter.Scale(topframe, from_=10, to=1000, resolution=1, orient=tkinter.HORIZONTAL,
+        popslider = tkinter.Scale(topframe, from_=0, to=1000, resolution=1, orient=tkinter.HORIZONTAL,
                                   command=lambda val: self.setpop(val))
-        lifeslider = tkinter.Scale(midframe1, from_=10, to=500, resolution=1, orient=tkinter.HORIZONTAL,
+        lifeslider = tkinter.Scale(midframe1, from_=0, to=500, resolution=1, orient=tkinter.HORIZONTAL,
                                    command=lambda val: self.setlife(val))
         mutslider = tkinter.Scale(midframe2, from_=0, to=100, resolution=1, orient=tkinter.HORIZONTAL,
                                   command=lambda val: self.setmut(val))
