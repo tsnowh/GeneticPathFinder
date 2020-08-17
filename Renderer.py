@@ -15,6 +15,7 @@ white = (255, 255, 255)
 red = (255, 0, 0)
 green = (0, 255, 0)
 blue = (0, 0, 255)
+yellow = (255, 255, 0)
 searcher_color = (255, 0, 0)
 start_x = 0
 start_y = 0
@@ -150,8 +151,25 @@ def fillrect(pos, color, window):
     y = (pos[1] // box_height) * box_height
 
     pygame.draw.rect(window, color, (x, y, box_width, box_height))
-    gridmap[(pos[1] // box_height)][(pos[0] // box_width)] = 1
+    # gridmap[(pos[1] // box_height)][(pos[0] // box_width)] = 1
     # print((pos[0] // box_width), (pos[1] // box_height))
+
+
+def drawpath(searcher, window):
+    x = 0
+    y = 0
+
+    for i in range(1, len(searcher.moves) - 1):
+        if searcher.moves[i] == 0:
+            x = x + box_width
+        elif searcher.moves[i] == 1:
+            x = x - box_width
+        elif searcher.moves[i] == 2:
+            y = y - box_height
+        elif searcher.moves[i] == 3:
+            y = y + box_height
+
+        pygame.draw.rect(window, yellow, (x, y, box_width, box_height))
 
 
 # renderstartend(window, s_color, e_color) renders the start and the end locations on the grid

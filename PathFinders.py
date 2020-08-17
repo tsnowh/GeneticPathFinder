@@ -19,6 +19,7 @@ class Searcher:
     # variables for each individual searcher
     movesmade = 0
     dna = []
+    moves = []
     fitness = 0
     randmoves = 1
     count = 0
@@ -29,6 +30,8 @@ class Searcher:
         self.x = x
         self.y = y
         self.mutate = mutate
+        self.moves = [0]
+        self.movesmade = 0
         if dna is not None:
             self.dna = dna
             self.randmoves = 0
@@ -39,24 +42,28 @@ class Searcher:
     def moveright(self):
         self.x += 1
         self.dna.append(0)
+        self.moves.append(0)
         self.movesmade += 1
 
     # moveleft(self) moves the searcher to the left
     def moveleft(self):
         self.x -= 1
         self.dna.append(1)
+        self.moves.append(1)
         self.movesmade += 1
 
     # moveup(self) moves the searcher up
     def moveup(self):
         self.y -= 1
         self.dna.append(2)
+        self.moves.append(2)
         self.movesmade += 1
 
     # movedown(self) moves the searcher down
     def movedown(self):
         self.y += 1
         self.dna.append(3)
+        self.moves.append(3)
         self.movesmade += 1
 
     # calcfitness(self) calculates the fitness of the searcher
@@ -84,8 +91,7 @@ def movesearcher(searcher, num):
             elif num == 2 and searcher.y > Renderer.start_y and Renderer.gridmap[searcher.y - 1][searcher.x] != 1:
                 searcher.moveup()
                 break
-            elif num == 3 and searcher.y < Renderer.grid_height - 1 and \
-                    Renderer.gridmap[searcher.y + 1][searcher.x] != 1:
+            elif num == 3 and searcher.y < Renderer.grid_height - 1 and Renderer.gridmap[searcher.y + 1][searcher.x] != 1:
                 searcher.movedown()
                 break
             else:
@@ -94,12 +100,13 @@ def movesearcher(searcher, num):
 
 # moveallsearchers(searchers, count) moves all the searchers, count is the length of searchers (ie. population size)
 # returns True if a searcher reached the end and false otherwise
-def moveallsearchers(searchers, count):
+def moveallsearchers(searchers, count, window):
     reachedend = False
 
     for i in range(count):
         if searchers[i].x == Renderer.grid_width - 1 and searchers[i].y == Renderer.grid_height - 1:
             reachedend = True
+            Renderer.drawpath(searchers[i], window)
             break
         if searchers[i].randmoves == 1 or (searchers[i].mutate and searchers[i].count > (4 * lifespan) / 6):
             movesearcher(searchers[i], random.randint(0, 3))

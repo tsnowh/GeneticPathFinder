@@ -35,6 +35,7 @@ while True:
         # if left mouse button clicked it creates blockade at the position of click
         if pressedl:
             Renderer.fillrect(pos, Renderer.blue, window)
+            Renderer.gridmap[(pos[1] // Renderer.box_height)][(pos[0] // Renderer.box_width)] = 1
             # Renderer.out2dmatrix(Renderer.gridmap) # debugging
         if pressedr:
             break
@@ -59,7 +60,7 @@ while True:
 
         # controls searchers
         Renderer.hidePathFinders(window, searchers, PathFinders.population)
-        check = PathFinders.moveallsearchers(searchers, PathFinders.population)
+        check = PathFinders.moveallsearchers(searchers, PathFinders.population, window)
         Renderer.renderPathFinders(window, searchers, PathFinders.population)
 
         # sets frame rate / delay
@@ -92,6 +93,7 @@ while True:
 
     # loop to break after searchers reached end
     while True:
+        pygame.display.update()
         event = pygame.event.wait()
 
         # if any key is pressed breaks loop
