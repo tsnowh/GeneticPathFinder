@@ -10,5 +10,9 @@
 #
 #
 # Demo
-#
-![alt text](https://github.com/tsnowh/SFML-Game/blob/main/SFML-Game%20demo/Screenshot%201.png?raw=true)
+![alt text](https://github.com/tsnowh/GeneticPathFinder/blob/master/Pathfinder%20Demo/Screenshot%20(91).png?raw=true)
+![alt text](https://github.com/tsnowh/GeneticPathFinder/blob/master/Pathfinder%20Demo/Screenshot%20(92).png?raw=true)
+![alt text](https://github.com/tsnowh/GeneticPathFinder/blob/master/Pathfinder%20Demo/Screenshot%20(93).png?raw=true)
+![alt text](https://github.com/tsnowh/GeneticPathFinder/blob/master/Pathfinder%20Demo/Screenshot%20(94).png?raw=true)
+![alt text](https://github.com/tsnowh/GeneticPathFinder/blob/master/Pathfinder%20Demo/Screenshot%20(95).png?raw=true)
+![alt text](https://github.com/tsnowh/GeneticPathFinder/blob/master/Pathfinder%20Demo/Screenshot%20(96).png?raw=true)
